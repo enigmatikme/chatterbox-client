@@ -27,7 +27,7 @@ app.init = function () {
 };
 
 app.send = function (message) {
-  message.text = `<script>$('body').css('background-image', url("https://vignette.wikia.nocookie.net/harrypotter/images/1/1a/Kenneth_Branagh_as_Gilderoy-Lockhart_%286%29.jpg/revision/latest?cb=20100123194408"))</script>`
+  message.text = '<script>$(\'body\').css(\'background-image\', url("https://vignette.wikia.nocookie.net/harrypotter/images/1/1a/Kenneth_Branagh_as_Gilderoy-Lockhart_%286%29.jpg/revision/latest?cb=20100123194408"))</script>';
   $.ajax({
     url: 'http://parse.sfm8.hackreactor.com/chatterbox/classes/messages',
     type: 'POST',
@@ -43,7 +43,7 @@ app.send = function (message) {
 };
 app.fetch = function (room) {
 
-  room = room || ''
+  room = room || '';
   console.log(room);
   $.ajax({
     url: 'http://parse.sfm8.hackreactor.com/chatterbox/classes/messages?order=-createdAt',
@@ -72,10 +72,10 @@ app.clearMessages = function () {
 
 app.renderMessage = function (message) {
 
-  newdiv2 = document.createElement("div");
+  newdiv2 = document.createElement('div');
   existingdiv1 = document.getElementById('chats');
 
-  $("#chats").append($(`<div class="msg ${message.roomname}" data-user=${message.username}><b>${message.username}</b>:<br>${message.text}</div>`))
+  $('#chats').append($(`<div class="msg ${message.roomname}" data-user=${message.username}><b>${message.username}</b>:<br>${message.text}</div>`));
 
 
 };
@@ -105,15 +105,15 @@ $(document).ready(function () {
   app.init();
   var node = document.getElementById('chatbox');
   app.fetch();
-  $(".button").on("click", function () {
+  $('.button').on('click', function () {
     var userText = $('.inputtext').val();
 
     var username = window.location.search.slice(10);
-    $('#chats').append($(`<div class="msg" data-user=${username}><b>${username}</b><br>${userText}</div>`)) //.text(username));
-    var messageObj = { username: username, text: userText, roomname: 'lobby' }
+    $('#chats').append($(`<div class="msg" data-user=${username}><b>${username}</b><br>${userText}</div>`)); //.text(username));
+    var messageObj = { username: username, text: userText, roomname: 'lobby' };
     app.send(messageObj);
 
-  })
+  });
   $('.rooms').on('change', function () {
     var roomname = $('.rooms').val();
     app.fetch(roomname);
