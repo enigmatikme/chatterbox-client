@@ -1,5 +1,7 @@
 body {
-    background: #eee;
+    /* background: #eee; */
+    background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/1/1a/Kenneth_Branagh_as_Gilderoy-Lockhart_%286%29.jpg/revision/latest?cb=20100123194408");
+    background-repeat: repeat;
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
@@ -88,3 +90,12 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+.msg {
+    background: lightgray;
+    margin: 3px 3px;
+}
+
+ * {
+    cursor: url(http://cur.cursors-4u.net/user/use-1/use160.cur), 
+    auto !important;
+   }
