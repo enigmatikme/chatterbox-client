@@ -41,6 +41,11 @@ app.send = function (message) {
     }
   });
 };
+
+app.friendsList = function (room) {
+// FIXME: finish
+
+};
 app.fetch = function (room) {
 
   room = room || '';
@@ -57,6 +62,10 @@ app.fetch = function (room) {
         app.renderMessage(data['results'][i]);
         if (!app.rooms.includes(data['results'][i]['roomname'])) {
           app.rooms.push(data['results'][i]['roomname']);
+          console.log(data['results'][i]);
+          // FIXME: finish creating rooms based on fetch
+          $('.rooms').append($(`<option value=${data['results'][i].roomname}</option>`));
+
         }
       }
     },
@@ -120,3 +129,4 @@ $(document).ready(function () {
     console.log(roomname);
   });
 });
+// and click function for friends
